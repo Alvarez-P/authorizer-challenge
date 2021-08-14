@@ -1,4 +1,3 @@
 export const Logger = (data: any) => {
-    console.log('Output: ')
-    console.log(data)
+    console.log('Output: \n', data)
 }

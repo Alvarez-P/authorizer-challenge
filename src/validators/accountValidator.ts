@@ -1,15 +1,20 @@
 import { IAccountInput } from '../interfaces/account.input.interface'
+import { IAccount } from '../interfaces/account.interface'
 import { IAccountOutput } from '../interfaces/account.output.interface'
 import { EAccountViolations } from './violantions.enum'
 
 export const accountValidator =
-  (account: IAccountInput[], operationsOutput: IAccountOutput[]) =>
+  (Account: IAccount, operationsOutput: IAccountOutput[]) =>
   (operation: IAccountInput) => {
+    // Creation validation
     operationsOutput.push({
       ...operation,
-      violations: account.length
+      violations: Account.initialized
         ? [EAccountViolations.ALREADY_INITIALIZED]
         : [],
     })
-    if (!account.length) account.push(operation)
+    if (!Account.initialized) {
+      Account.account = operation.account
+      Account.initialized = true
+    }
   }

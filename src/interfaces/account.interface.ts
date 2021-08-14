@@ -2,7 +2,7 @@ interface IAccountProps {
   'active-card'?: boolean
   'available-limit'?: number
 }
-export interface IAccountOutput {
+export interface IAccount {
   account: IAccountProps
-  violations: string[]
+  initialized: boolean
 }
