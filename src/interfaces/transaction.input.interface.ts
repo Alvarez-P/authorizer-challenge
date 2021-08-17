@@ -1,4 +1,4 @@
-interface ITransactionProps {
+export interface ITransactionProps {
   merchant: string
   amount: number
   time: Date
